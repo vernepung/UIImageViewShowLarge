@@ -1,0 +1,28 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E743CED73D6875AEDC3F72B67C87D849FB40CE2B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E743CED73D6875AEDC3F72B67C87D849FB40CE2B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A724003B-FE2B-4498-B962-88C19978E157",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E743CED73D6875AEDC3F72B67C87D849FB40CE2B" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ShowLargeImageDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ShowLargeImageDemo\/ShowLargeImageDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/liuchungui\/UIImageViewShowLarge.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E743CED73D6875AEDC3F72B67C87D849FB40CE2B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vernepung\/UIImageViewShowLarge.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E743CED73D6875AEDC3F72B67C87D849FB40CE2B"
+    }
+  ]
+}
