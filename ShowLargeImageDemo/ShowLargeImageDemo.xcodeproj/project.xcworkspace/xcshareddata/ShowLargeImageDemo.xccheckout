@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A724003B-FE2B-4498-B962-88C19978E157</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E743CED73D6875AEDC3F72B67C87D849FB40CE2B</key>
+		<string>https://github.com/vernepung/UIImageViewShowLarge.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ShowLargeImageDemo/ShowLargeImageDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E743CED73D6875AEDC3F72B67C87D849FB40CE2B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vernepung/UIImageViewShowLarge.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E743CED73D6875AEDC3F72B67C87D849FB40CE2B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E743CED73D6875AEDC3F72B67C87D849FB40CE2B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>UIImageViewShowLarge</string>
+		</dict>
+	</array>
+</dict>
+</plist>

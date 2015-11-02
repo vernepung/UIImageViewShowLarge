@@ -11,7 +11,7 @@
 static const void *oldFrameKey = &oldFrameKey;
 static const void *oneTaBlockpKey = &oneTaBlockpKey;
 static const void *longPressBlockKey = &longPressBlockKey;
-@interface UIImageView (ShowLarge)
+@interface UIImageView (ShowLarge)<UIActionSheetDelegate>
 {
 }
 @property (copy,nonatomic) NSValue *oldFrame;
@@ -51,12 +51,12 @@ static const void *longPressBlockKey = &longPressBlockKey;
 - (void)showLargeImageWithLargeUrl:(NSString *)url
 {
     UIImage *oldImage = self.image;
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UIWindow *window = [self getCurrentWindow];
     self.oldFrame = [NSValue valueWithCGRect:[self convertRect:self.bounds toView:window]];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideLargeImage:)];
     UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kMainBoundsWidth, kMainBoundsHeight)];
     backgroundView.tag = 5002;
-    backgroundView.backgroundColor = [UIColor blackColor];
+    backgroundView.backgroundColor = [UIColor clearColor];
     backgroundView.alpha = 0;
     [backgroundView addGestureRecognizer:tapGesture];
     
@@ -74,7 +74,29 @@ static const void *longPressBlockKey = &longPressBlockKey;
     [UIView animateWithDuration:.25 animations:^{
         newImageView.frame = CGRectMake(0, (kMainBoundsHeight - height) / 2, kMainBoundsWidth, height);
         backgroundView.alpha = 1;
+        backgroundView.backgroundColor = [UIColor blackColor];
+    } completion:^(BOOL finished) {
+        
     }];
+    if (url && url.length > 0)
+    {
+        [newImageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]]];
+        // DownLoad Image
+        
+//        UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, kMainBoundsWidth, kMainBoundsHeight)];
+//        indicatorView.backgroundColor = [UIColor clearColor];
+//        indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+//        indicatorView.center = window.center;
+//        [indicatorView startAnimating];
+//        [window addSubview:indicatorView];
+//        [[SDWebImageManager sharedManager] downloadWithURL:[NSURL URLWithString:url] options:SDWebImageRefreshCached progress:^(NSUInteger receivedSize, long long expectedSize) {
+//            
+//        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+//            [newImageView setImage:image];
+//            [indicatorView stopAnimating];
+//            [indicatorView removeFromSuperview];
+//        }];
+    }
     
 }
 
@@ -84,6 +106,34 @@ static const void *longPressBlockKey = &longPressBlockKey;
     {
         self.longPress(longPressGesture);
     }
+    else
+    {
+        if (longPressGesture.state == UIGestureRecognizerStateBegan)
+        {
+            NSLog(@"单击大图，未设置Block");
+            UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"保存图片" otherButtonTitles: nil];
+            [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+        }
+    }
+}
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        UIImageView *newImageView = (UIImageView *)[[self getCurrentWindow] viewWithTag:5001];
+        UIImageWriteToSavedPhotosAlbum(newImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSString *msg = @"图片已经保存到相册";
+    if (error)
+    {
+        msg = @"保存图片失败";
+    }
+    NSLog(msg);
 }
 
 - (void)hideLargeImage:(UIGestureRecognizer *)gesture
@@ -94,16 +144,35 @@ static const void *longPressBlockKey = &longPressBlockKey;
     }
     else
     {
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        UIImageView *newImageView = (UIImageView *)[window viewWithTag:5001];
+        UIWindow *window = [self getCurrentWindow];
         UIView *backgroundView = (UIView *)[window viewWithTag:5002];
+        UIImageView *newImageView = (UIImageView *)[backgroundView viewWithTag:5001];
         [UIView animateWithDuration:.25 animations:^{
             newImageView.frame = [self.oldFrame CGRectValue];
+            backgroundView.backgroundColor = [UIColor clearColor];
             backgroundView.alpha = 0;
         } completion:^(BOOL finished) {
-            [newImageView removeFromSuperview];
             [backgroundView removeFromSuperview];
         }];
     }
 }
+
+- (UIWindow *)getCurrentWindow
+{
+    UIWindow *window = nil;
+    for (UIWindow *tempWindow in [UIApplication sharedApplication].windows) {
+        if (tempWindow.tag == 54321)
+        {
+            window = tempWindow;
+            break;
+        }
+    }
+    if (!window)
+    {
+        window = [UIApplication sharedApplication].keyWindow;
+        window.tag = 54321;
+    }
+    return window;
+}
+
 @end
