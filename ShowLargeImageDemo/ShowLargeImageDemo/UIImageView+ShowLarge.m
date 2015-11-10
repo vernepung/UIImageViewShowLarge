@@ -82,7 +82,7 @@ static const void *longPressBlockKey = &longPressBlockKey;
     {
         [newImageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]]];
         // DownLoad Image
-        
+        // 未上传SDWebImage。。
 //        UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, kMainBoundsWidth, kMainBoundsHeight)];
 //        indicatorView.backgroundColor = [UIColor clearColor];
 //        indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
@@ -110,7 +110,7 @@ static const void *longPressBlockKey = &longPressBlockKey;
     {
         if (longPressGesture.state == UIGestureRecognizerStateBegan)
         {
-            NSLog(@"单击大图，未设置Block");
+            NSLog(@"长按大图，未设置Block");
             UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"保存图片" otherButtonTitles: nil];
             [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
         }

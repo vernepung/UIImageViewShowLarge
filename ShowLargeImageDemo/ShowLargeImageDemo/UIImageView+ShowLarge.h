@@ -14,9 +14,12 @@ typedef void (^VPLongPressBlock)(UILongPressGestureRecognizer *);
 
 @interface UIImageView (ShowLarge)
 /**
- *  不设置则自动隐藏
+ *  不设置则调用默认的隐藏方法
  */
 @property (copy,nonatomic) VPTapBlock oneTap;
+/**
+ *  不设置则调用默认的长按（未实现下载）
+ */
 @property (copy,nonatomic) VPLongPressBlock longPress;
 - (void)showLargeImageWithLargeUrl:(NSString *)url;
 @end
