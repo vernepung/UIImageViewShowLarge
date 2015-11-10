@@ -92,8 +92,8 @@
 				62FC28631BE75B44006588D7 /* ViewController.h */,
 				62FC28641BE75B44006588D7 /* ViewController.m */,
 				62FC28661BE75B44006588D7 /* Main.storyboard */,
-				62FC28821BE75BC9006588D7 /* UIImageView+ShowLarge.m */,
 				62FC28831BE75BC9006588D7 /* UIImageView+ShowLarge.h */,
+				62FC28821BE75BC9006588D7 /* UIImageView+ShowLarge.m */,
 				62FC28691BE75B44006588D7 /* Images.xcassets */,
 				62FC286B1BE75B44006588D7 /* LaunchScreen.xib */,
 				62FC285C1BE75B44006588D7 /* Supporting Files */,
@@ -426,6 +426,7 @@
 				62FC287E1BE75B45006588D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62FC287F1BE75B45006588D7 /* Build configuration list for PBXNativeTarget "ShowLargeImageDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +435,7 @@
 				62FC28811BE75B45006588D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

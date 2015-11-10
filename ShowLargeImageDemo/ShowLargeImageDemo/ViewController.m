@@ -40,7 +40,8 @@ const CGFloat imageSize = 80;
 - (void)imageTap:(UITapGestureRecognizer *)tapGesture
 {
     UIImageView *imageView = (UIImageView *)tapGesture.view;
-    [imageView showLargeImageWithLargeUrl:_largeImageArr[(imageView.tag - 2000) % 2]];
+    NSInteger temp = imageView.tag - 2000;
+    [imageView showLargeImageWithLargeUrl:temp == 0 ? nil : _largeImageArr[temp % 2]];
     imageView.longPress = ^(UILongPressGestureRecognizer *longPressGesture)
     {
         NSLog(@"长按大图");

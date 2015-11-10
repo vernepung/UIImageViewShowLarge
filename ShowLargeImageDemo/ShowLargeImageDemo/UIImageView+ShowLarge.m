@@ -133,7 +133,7 @@ static const void *longPressBlockKey = &longPressBlockKey;
     {
         msg = @"保存图片失败";
     }
-    NSLog(msg);
+    NSLog(@"%@",msg);
 }
 
 - (void)hideLargeImage:(UIGestureRecognizer *)gesture
@@ -147,7 +147,7 @@ static const void *longPressBlockKey = &longPressBlockKey;
         UIWindow *window = [self getCurrentWindow];
         UIView *backgroundView = (UIView *)[window viewWithTag:5002];
         UIImageView *newImageView = (UIImageView *)[backgroundView viewWithTag:5001];
-        [UIView animateWithDuration:.25 animations:^{
+        [UIView animateWithDuration:.35 animations:^{
             newImageView.frame = [self.oldFrame CGRectValue];
             backgroundView.backgroundColor = [UIColor clearColor];
 //            backgroundView.alpha = 0;
